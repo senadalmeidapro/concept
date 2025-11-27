@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mt-4">
-    <h2>Liste des Portfolio</h2>
+    <h2>Liste des Portfolios</h2>
 
     <a href="{{ route('portfolio.create') }}" class="btn btn-primary mb-3">Ajouter</a>
 
@@ -10,8 +10,8 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Titre</th>
-                <th>Catégorie</th>
+                <th>Nom complet</th>
+                <th>Titre du projet</th>
                 <th>Image</th>
                 <th>Actions</th>
             </tr>
@@ -21,11 +21,11 @@
             @foreach($portfolios as $p)
             <tr>
                 <td>{{ $p->id }}</td>
-                <td>{{ $p->titre }}</td>
-                <td>{{ $p->categorie }}</td>
+                <td>{{ $p->fullName }}</td>
+                <td>{{ $p->project_title }}</td>
                 <td>
-                    @if($p->image)
-                    <img src="{{ asset('storage/' . $p->image) }}" width="70">
+                    @if($p->image_url)
+                        <img src="{{ asset('storage/'.$p->image_url) }}" width="70">
                     @endif
                 </td>
                 <td>
