@@ -12,11 +12,14 @@ Route::put('/todos/{id}', [TodoController::class, 'update'])->name('todos.update
 Route::delete('/todos/{id}', [TodoController::class, 'destroy'])->name('todos.destroy');
 Route::patch('/todos/{id}/toggle', [TodoController::class, 'toggle'])->name('todos.toggle');
 
-// Game Routes
+// Routes du jeu
 Route::get('/game', [GameController::class, 'play'])->name('games.play');
 Route::get('/scores', [GameController::class, 'index'])->name('games.scores');
-Route::post('/scores', [GameController::class, 'store'])->name('games.store');
 Route::get('/top-scores', [GameController::class, 'topScores'])->name('games.top-scores');
+Route::post('/scores', [GameController::class, 'store'])->name('games.store');
+
+// Routes CRUD (administration)
+Route::resource('games', GameController::class)->except(['create', 'store']);
 
 // Portfolio Routes
 Route::get('/', [PortfolioController::class, 'home'])->name('portfolio.home');
