@@ -8,9 +8,7 @@ use Illuminate\Support\Facades\Validator;
 
 class TodoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $todos = Todo::orderBy('created_at', 'desc')->get();
