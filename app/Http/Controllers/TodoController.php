@@ -42,6 +42,14 @@ class TodoController extends Controller
             ->with('success', 'Tâche ajoutée avec succès !');
     }
 
+    public function edit(string $id)
+    {
+        $todo = Todo::findOrFail($id);
+
+        return view('todos.edit', compact('todo'));
+
+    }
+
     /**
      * Update the specified resource in storage.
      */

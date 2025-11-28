@@ -49,9 +49,9 @@
                                             <!-- Toggle completion -->
                                             <form action="{{ route('todos.toggle', $todo->id) }}" method="POST" class="me-2">
                                                 @csrf
-                                                <button type="submit" class="btn btn-sm btn-outline-{{ $todo->completed ? 'success' : 'secondary' }}">
+                                                <span type="" class="btn btn-sm btn-outline-{{ $todo->completed ? 'success' : 'secondary' }}">
                                                     <i class="fas fa-{{ $todo->completed ? 'check' : 'times' }}"></i>
-                                                </button>
+                                                </span>
                                             </form>
                                             
                                             <!-- Texte de la tâche -->
@@ -62,10 +62,10 @@
                                         
                                         <!-- Actions -->
                                         <div class="btn-group">
-                                            <!-- Lien show -->
+                                            {{-- <!-- Lien show -->
                                             <a href="{{ route('todos.show', $todo->id) }}" class="btn btn-sm btn-info">
                                                 <i class="fas fa-eye"></i>
-                                            </a>
+                                            </a> --}}
                                             
                                             <!-- Lien edit -->
                                             <a href="{{ route('todos.edit', $todo->id) }}" class="btn btn-sm btn-warning">
